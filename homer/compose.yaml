@@ -1,0 +1,15 @@
+services:
+  homer:
+    container_name: homer
+    image: b4bz/homer:latest
+    restart: unless-stopped
+    ports:
+      - 8000:8080
+    volumes:
+      - ${APP_DIR:?err}/homer/assets:/www/assets
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
