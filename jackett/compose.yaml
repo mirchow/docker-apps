@@ -1,0 +1,22 @@
+services:
+  jackett:
+    container_name: jackett
+    image: lscr.io/linuxserver/jackett:latest
+    restart: unless-stopped
+    ports:
+      - 9117:9117
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+      - AUTO_UPDATE=true #optional
+    volumes:
+      - ${APP_DIR:?err}/jackett/config:/config
+      - ${MEDIA_DIR:?err}:/data
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
+    external: true

@@ -1,0 +1,21 @@
+services:
+  lidarr:
+    container_name: lidarr
+    image: lscr.io/linuxserver/lidarr:latest
+    restart: unless-stopped
+    ports:
+      - 8686:8686
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+    volumes:
+      - ${APP_DIR:?err}/lidarr/config:/config
+      - ${MEDIA_DIR:?err}:/data
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
+    external: true

@@ -1,0 +1,24 @@
+services:
+  qbittorrent:
+    container_name: qbittorrent
+    image: lscr.io/linuxserver/qbittorrent:latest
+    restart: unless-stopped
+    ports:
+      - 6881:6881/tcp
+      - 6881:6881/udp
+      - 8080:8080
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+      - WEBUI_PORT=8080
+    volumes:
+      - ${APP_DIR:?err}/qbittorrent/config:/config
+      - ${MEDIA_DIR:?err}/data:/data
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
+    external: true

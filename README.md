@@ -23,3 +23,5 @@ Clone this repo, copy the `sample.env` to `.env` and link it to every folder
 ``` 
 ln /path/to/global/.env /path/to/app_folder/.env 
 ```
+
+look at https://trash-guides.info/
