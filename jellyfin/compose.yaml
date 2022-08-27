@@ -1,0 +1,25 @@
+services:
+  jellyfin:
+    container_name: jellyfin
+    user: 501:20
+    restart: unless-stopped
+    image: jellyfin/jellyfin
+    ports:
+      - 8096:8096
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+    volumes:
+      - ${APP_DIR:?err}/jellyfin/config:/config
+      - ${APP_DIR:?err}/jellyfin/cache:/cache
+      - ${DATA_DIR:?err}/media/movies:/movies
+      - ${DATA_DIR:?err}/media/tv:/tvshows
+      - ${DATA_DIR:?err}/media/music:/music
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
+    external: true
