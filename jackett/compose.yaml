@@ -12,7 +12,7 @@ services:
       - AUTO_UPDATE=true #optional
     volumes:
       - ${APP_DIR:?err}/jackett/config:/config
-      - ${MEDIA_DIR:?err}:/data
+      - ${DATA_DIR:?err}:/data
     networks:
       - proxy
 

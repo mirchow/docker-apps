@@ -106,9 +106,9 @@ services:
     ## Storage Folders: "~" is a shortcut for your home directory, "." for the current directory
     volumes:
       # "/host/folder:/photoprism/folder"                # Example
-      - "${MEDIA_DIR:?err}/Pictures/photoprism:/photoprism/originals"               # Original media files (DO NOT REMOVE)
+      - "${DATA_DIR:?err}/Pictures/photoprism:/photoprism/originals"               # Original media files (DO NOT REMOVE)
       # - "/example/family:/photoprism/originals/family" # *Additional* media folders can be mounted like this
-      - "${MEDIA_DIR:?err}/Pictures/photoprism_import:/photoprism/import"                  # *Optional* base folder from which files can be imported to originals
+      - "${DATA_DIR:?err}/Pictures/photoprism_import:/photoprism/import"                  # *Optional* base folder from which files can be imported to originals
       - "${APP_DIR:?err}/photoprism:/photoprism/storage"                  # *Writable* storage folder for cache, database, and sidecar files (DO NOT REMOVE)
 
   ## Database Server (recommended)

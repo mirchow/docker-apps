@@ -11,7 +11,7 @@ services:
       - TZ=${TZ:?err}
     volumes:
       - ${APP_DIR:?err}/radarr/config:/config
-      - ${MEDIA_DIR:?err}:/data
+      - ${DATA_DIR:?err}:/data
     networks:
       - proxy
 

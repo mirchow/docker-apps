@@ -14,7 +14,7 @@ services:
       - WEBUI_PORT=8080
     volumes:
       - ${APP_DIR:?err}/qbittorrent/config:/config
-      - ${MEDIA_DIR:?err}:/data
+      - ${DATA_DIR:?err}:/data
     networks:
       - proxy
 
