@@ -4,6 +4,7 @@ services:
     image: lscr.io/linuxserver/plex:latest
     restart: unless-stopped
     network_mode: host
+    device: /dev/dri:/dev/dri
     environment:
       - PUID=${PUID:?err}
       - PGID=${PGID:?err}
