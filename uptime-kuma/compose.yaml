@@ -1,0 +1,21 @@
+services:
+  uptime-kuma:
+    container_name: uptime-kuma
+    image: louislam/uptime-kuma:latest
+    restart: unless-stopped
+    ports:
+      - 8006:3001
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+      - VERSION=docker
+    volumes:
+      - ${APP_DIR:?err}/uptime-kuma/config:/app/data
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
+    external: true

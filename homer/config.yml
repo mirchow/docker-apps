@@ -63,9 +63,12 @@ services:
     icon: "fas fa-photo-video"
     items:
       - name: "Jellyfin"
-        subtitle: "Media Player System"
+        # subtitle: "Media Player System"
         logo: "assets/tools/jellyfin.png"
         url: "http://192.168.1.100:8096/"
+        type: "Emby"
+        apikey: "50f11429eda640619667597356a48987"
+        libraryType: "movies"
         target: "_blank"
 
       - name: "PodGrab"
@@ -84,11 +87,11 @@ services:
     icon: "fas fa-cloud"
     items:
       - name: "Portainer"
-        subtitle: "Docker Container Manager"
+        # subtitle: "Docker Container Manager"
         logo: "assets/tools/portainer.png"
-        url: "http://192.168.1.100:9000/#!/2/docker/containers"
+        url: "https://192.168.1.100:9443/"
         type: "Portainer"
-        apikey: "ptr_MtLs11USkAAGpVktuOXGNsCGhFjZ/m3FuhhgdZfU7HU="
+        apikey: "ptr_5XuWbRoPJGM5roWTmeePkymBsKuBdADf2gyehxe1vOE="
         target: "_blank"
 
       - name: "Whoogle Search"
@@ -103,7 +106,7 @@ services:
         logo: "assets/tools/filebrowser.png"
         url: "http://192.168.1.100:8011"
         target: "_blank"
-
+        
   - name: "Notes"
     icon: "fas fa-note"
     items:
@@ -112,6 +115,13 @@ services:
         logo: "assets/tools/snippetbox.png"
         url: "http://192.168.1.100:8003/"
         target: "_blank"
+
+      - name: "Weather"
+        locationId: 4160021
+        apikey: "ff75997dccfa9c864e1c9f92071de379"
+        units: "imperial"
+        background: "circle"
+        type: "OpenWeather"
 
 
   - name: "Download"
@@ -147,25 +157,33 @@ services:
       - name: "Prowlarr"
         subtitle: "Indexers Management"
         logo: "assets/tools/prowlarr.png"
-        url: "http://192.168.1.100:8009/"
+        url: "http://192.168.1.100:9696/"
+        type: Prowlarr
+        apikey: "cb2136bec9534cebbf0ce2e75940d83c"
         target: "_blank"
 
       - name: "Sonarr"
         subtitle: "TV Show Collection Manager"
         logo: "assets/tools/sonarr.png"
-        url: "http://192.168.1.100:8006/"
+        url: "http://192.168.1.100:8989/"
+        type: Sonarr
+        apikey: "3e9c3af719364dabaff8306c2043a47f"
         target: "_blank"
 
       - name: "Radarr"
         subtitle: "Movie Collection Manager"
         logo: "assets/tools/radarr.png"
         url: "http://192.168.1.100:7878/"
+        type: Radarr
+        apikey: "7574956df3424feca6d7cff6461d4d67"
         target: "_blank"
 
       - name: "Lidarr"
         subtitle: "Music Collection Manager"
         logo: "assets/tools/lidarr.png"
-        url: "http://192.168.1.100:8004/"
+        url: "http://192.168.1.100:8686/"
+        type: Lidarr
+        apikey: "012e93a81e2d4785b4e677642e13eb48"
         target: "_blank"
 
       - name: "Readarr"
@@ -185,21 +203,24 @@ services:
     icon: "fas fa-cog"
     items:
       - name: "PiHole-mini"
-        subtitle: "Ad Blocker"
+        subtitle: "Network-wide Ad Blocking"
         logo: "assets/tools/pihole.png"
-        url: "http://192.168.1.100:8002/admin/index.php"
+        url: "http://192.168.1.100:8002/admin"
+        type: "PiHole"
         target: "_blank"
 
       - name: "PiHole-linode"
-        subtitle: "Ad Blocker"
+        # subtitle: "Network-wide Ad Blocking"
         logo: "assets/tools/pihole.png"
-        url: "http://50.116.33.99/admin/index.php"
+        url: "http://50.116.33.99/admin"
+        type: "PiHole"
         target: "_blank"
         
       - name: "PiHole-gcp"
-        subtitle: "Ad Blocker"
+        # subtitle: "Network-wide Ad Blocking"
         logo: "assets/tools/pihole.png"
-        url: "http://34.138.56.93/admin/index.php"
+        url: "http://34.138.56.93/admin"
+        type: "PiHole"
         target: "_blank"
 
   - name: "Databases"
