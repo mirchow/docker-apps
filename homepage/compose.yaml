@@ -1,0 +1,17 @@
+services:
+  homepage:
+    container_name: homepage
+    image: ghcr.io/benphelps/homepage:latest
+    restart: unless-stopped
+    ports:
+      - 8081:3000
+    volumes:
+      - ${APP_DIR:?err}/homepage/config:/config
+      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
+    external: true
