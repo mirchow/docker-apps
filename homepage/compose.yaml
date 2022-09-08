@@ -6,7 +6,7 @@ services:
     ports:
       - 8081:3000
     volumes:
-      - ${APP_DIR:?err}/homepage/config:/config
+      - ${APP_DIR:?err}/homepage/config:/app/config
       - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
     networks:
       - proxy

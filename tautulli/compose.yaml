@@ -1,0 +1,20 @@
+services:
+  tautulli:
+    container_name: tautulli
+    image: lscr.io/linuxserver/tautulli:latest
+    restart: unless-stopped
+    ports:
+      - 8181:8181
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+    volumes:
+      - ${APP_DIR:?err}/tautulli/config:/config
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
+    external: true
