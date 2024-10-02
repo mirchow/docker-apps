@@ -1,0 +1,35 @@
+services:
+  lubelogger:
+    container_name: lubelogger
+    image: ghcr.io/hargata/lubelogger:latest
+    build: .
+    restart: unless-stopped
+    ports:
+      - 7474:8080
+    environment:
+      #- LC_ALL=en_GB.UTF-8 # United Kingdom
+      - LC_ALL=en_US.UTF-8 # USA
+      #- LC_ALL=fr_CA.UTF-8 # French Canadian
+      #- LC_ALL=de_DE.UTF-8 # Germany
+      #- LC_ALL=es_MX.UTF-8 # Spanish (Mexico)
+      #- LC_ALL=ja_JP.UTF-8 # Japan
+      #- LC_ALL=zh_CN.UTF-8 # China
+      #- LC_ALL=it_IT.UTF-8 # Italy
+    volumes:
+      - ${APP_DIR:?err}/lubelogger/config:/App/config
+      - ${APP_DIR:?err}/lubelogger/data:/App/data
+      - ${APP_DIR:?err}/lubelogger/translations:/App/wwwroot/translations
+      - ${APP_DIR:?err}/lubelogger/documents:/App/wwwroot/documents
+      - ${APP_DIR:?err}/lubelogger/images:/App/wwwroot/images
+      - ${APP_DIR:?err}/lubelogger/temp:/App/wwwroot/temp
+      - ${APP_DIR:?err}/lubelogger/log:/App/log
+      - ${APP_DIR:?err}/lubelogger/lubeloggepokeys:/root/.aspnet/DataProtection-Keys
+    networks:
+      - proxy
+    env_file:
+      - .env
+
+networks:
+  proxy:
+    driver: bridge
+    external: true

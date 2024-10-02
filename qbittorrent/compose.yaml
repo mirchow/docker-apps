@@ -1,12 +1,23 @@
 services:
+  gluetun:
+    container_name: gluetun
+    image: qmcgaw/gluetun:latest
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VPN_SERVICE_PROVIDER=custom
+      - VPN_TYPE=wireguard
+    ports:
+      - "8080:8080/tcp" # Qbittorrent Web UI
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./wg0.conf:/gluetun/wireguard/wg0.conf
+
   qbittorrent:
     container_name: qbittorrent
     image: lscr.io/linuxserver/qbittorrent:latest
     restart: unless-stopped
-    ports:
-      - 6881:6881/tcp
-      - 6881:6881/udp
-      - 8080:8080
     environment:
       - PUID=${PUID:?err}
       - PGID=${PGID:?err}
@@ -15,11 +26,9 @@ services:
       - TORRENTING_PORT=6881
     volumes:
       - ${APP_DIR:?err}/qbittorrent/config:/config
+      - ${DATA_DIR:?err}:/data
       - ${DATA_DIR:?err}:/downloads
-    networks:
-      - proxy
-
-networks:
-  proxy:
-    driver: bridge
-    external: true
+    network_mode: "service:gluetun"
+    depends_on:
+      gluetun:
+        condition: service_healthy

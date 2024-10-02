@@ -65,7 +65,7 @@ services:
       - name: "Jellyfin"
         # subtitle: "Media Player System"
         logo: "assets/tools/jellyfin.png"
-        url: "http://192.168.1.100:8096/"
+        url: "http://192.168.2.100:8096/"
         type: "Emby"
         apikey: "50f11429eda640619667597356a48987"
         libraryType: "movies"
@@ -74,13 +74,13 @@ services:
       - name: "PodGrab"
         subtitle: "Podcasts Downloader"
         logo: "assets/tools/podgrab.png"
-        url: "http://192.168.1.100:8012/"
+        url: "http://192.168.2.100:8012/"
         target: "_blank"
 
       - name: "PhotoPrism"
         subtitle: "Photo Management and Gallery"
         logo: "assets/tools/photoprism.png"
-        url: "http://192.168.1.100:8013/"
+        url: "http://192.168.2.100:8013/"
         target: "_blank"
         
   - name: "Applications"
@@ -89,7 +89,7 @@ services:
       - name: "Portainer"
         # subtitle: "Docker Container Manager"
         logo: "assets/tools/portainer.png"
-        url: "https://192.168.1.100:9443/"
+        url: "https://192.168.2.100:9443/"
         type: "Portainer"
         apikey: "ptr_5XuWbRoPJGM5roWTmeePkymBsKuBdADf2gyehxe1vOE="
         target: "_blank"
@@ -98,13 +98,13 @@ services:
         subtitle: "Anonymous Search Engine"
         logo: "assets/tools/whoogle.png"
         keywords: "search google"
-        url: "http://192.168.1.100:8020/"
+        url: "http://192.168.2.100:8020/"
         target: "_blank" # optional html a tag target attribute
 
       - name: "Filebrowser"
         subtitle: "Web Based Filebrowser"
         logo: "assets/tools/filebrowser.png"
-        url: "http://192.168.1.100:8011"
+        url: "http://192.168.2.100:8011"
         target: "_blank"
         
   - name: "Notes"
@@ -113,7 +113,7 @@ services:
       - name: "Snippet Box"
         subtitle: "Coding snippet notes"
         logo: "assets/tools/snippetbox.png"
-        url: "http://192.168.1.100:8003/"
+        url: "http://192.168.2.100:8003/"
         target: "_blank"
 
       - name: "Weather"
@@ -130,19 +130,19 @@ services:
       - name: "Transmission-VPN"
         subtitle: "Torrent Downloader behind a VPN"
         logo: "assets/tools/transmission.png"
-        url: "http://192.168.1.100:9091/transmission/web/"
+        url: "http://192.168.2.100:9091/transmission/web/"
         target: "_blank"
 
       - name: "Flood WebUI"
         subtitle: "Beautiful WebUI for torrent clients"
         logo: "assets/tools/flood.png"
-        url: "http://192.168.1.100:8014"
+        url: "http://192.168.2.100:8014"
         target: "_blank"
 
       - name: "Tube Archivist"
         subtitle: "YouTube Offline Downloader"
         logo: "assets/tools/tubearchivist.png"
-        url: "http://192.168.1.100:8010/"
+        url: "http://192.168.2.100:8010/"
         target: "_blank"
 
   - name: "Indexers"
@@ -151,13 +151,13 @@ services:
       - name: "Overseerr"
         subtitle: "Media Requester for Plex"
         logo: "assets/tools/overseerr.png"
-        url: "http://192.168.1.100:8006/"
+        url: "http://192.168.2.100:8006/"
         target: "_blank"
 
       - name: "Prowlarr"
         subtitle: "Indexers Management"
         logo: "assets/tools/prowlarr.png"
-        url: "http://192.168.1.100:9696/"
+        url: "http://192.168.2.100:9696/"
         type: Prowlarr
         apikey: "cb2136bec9534cebbf0ce2e75940d83c"
         target: "_blank"
@@ -165,7 +165,7 @@ services:
       - name: "Sonarr"
         subtitle: "TV Show Collection Manager"
         logo: "assets/tools/sonarr.png"
-        url: "http://192.168.1.100:8989/"
+        url: "http://192.168.2.100:8989/"
         type: Sonarr
         apikey: "3e9c3af719364dabaff8306c2043a47f"
         target: "_blank"
@@ -173,7 +173,7 @@ services:
       - name: "Radarr"
         subtitle: "Movie Collection Manager"
         logo: "assets/tools/radarr.png"
-        url: "http://192.168.1.100:7878/"
+        url: "http://192.168.2.100:7878/"
         type: Radarr
         apikey: "7574956df3424feca6d7cff6461d4d67"
         target: "_blank"
@@ -181,7 +181,7 @@ services:
       - name: "Lidarr"
         subtitle: "Music Collection Manager"
         logo: "assets/tools/lidarr.png"
-        url: "http://192.168.1.100:8686/"
+        url: "http://192.168.2.100:8686/"
         type: Lidarr
         apikey: "012e93a81e2d4785b4e677642e13eb48"
         target: "_blank"
@@ -189,13 +189,13 @@ services:
       - name: "Readarr"
         subtitle: "Books Collection Manager"
         logo: "assets/tools/readarr.png"
-        url: "http://192.168.1.100:8007/"
+        url: "http://192.168.2.100:8007/"
         target: "_blank"
 
       - name: "Bazarr"
         subtitle: "Subtitles Collection"
         logo: "assets/tools/bazarr.png"
-        url: "http://192.168.1.100:8005/"
+        url: "http://192.168.2.100:8005/"
         target: "_blank"
 
 
@@ -205,7 +205,7 @@ services:
       - name: "PiHole-mini"
         subtitle: "Network-wide Ad Blocking"
         logo: "assets/tools/pihole.png"
-        url: "http://192.168.1.100:8002/admin"
+        url: "http://192.168.2.100:8002/admin"
         type: "PiHole"
         target: "_blank"
 
@@ -229,5 +229,5 @@ services:
       - name: "Redis"
         subtitle: "Redis with Insights"
         logo: "assets/tools/redis.png"
-        url: "http://192.168.1.100:8001/redis-stack/browser"
+        url: "http://192.168.2.100:8001/redis-stack/browser"
         target: "_blank"

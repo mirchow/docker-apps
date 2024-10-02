@@ -1,0 +1,40 @@
+
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: homeassistant/home-assistant:stable
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID:?err}
+      - PGID=${PGID:?err}
+      - TZ=${TZ:?err}
+    volumes:
+      - ${APP_DIR:?err}/homeassistant/config:/config
+    privileged: true
+    network_mode: host
+#    devices:
+#      - "/dev/ttyACM0:/zigbeestick:rwm"
+
+  eclipse-mosquitto:
+    image: eclipse-mosquitto:latest
+    volumes:
+      - ${APP_DIR:?err}/homeassistant/mosquitto/config:/mosquitto/config
+      - ${APP_DIR:?err}/homeassistant/mosquitto/data:/mosquitto/data
+      - ${APP_DIR:?err}/homeassistant/mosquitto/log:/mosquitto/log
+    restart: unless-stopped
+    network_mode: host
+
+  vscode:
+    # container_name: vscode
+    image: codercom/code-server:latest
+    ports:
+      - "3991:8080"
+    volumes:
+      - ${APP_DIR:?err}/homeassistant/vscode/.config:/home/coder/.config
+      - ${APP_DIR:?err}/homeassistant:/home/coder/project
+      - ${APP_DIR:?err}/homeassistant/vscode:/home/coder/.local/share/code-server
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    #    environment:
+    #      - "DOCKER_USER=${USER}"
+    #      - PASSWORD: "123456"
+    user: "${PUID}:${PGID}"

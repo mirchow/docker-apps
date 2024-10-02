@@ -1,6 +1,29 @@
 # docker-apps
 docker compose templates for my various applications
 
+Useful commands
+
+```
+docker compose up -d
+docker compose down
+docker compose top
+docker ps
+docker top
+docker compose pull
+docker compose restart
+docker compose update
+
+ln .env ./tautulli/.env
+
+
+
+docker compose up --force-recreate --build -d
+docker image prune -f
+docker network ls
+
+```
+
+
 For other repos and images checkout
 
 https://github.com/novaspirit/pi-hosted/tree/master/images

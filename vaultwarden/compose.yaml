@@ -1,18 +1,17 @@
+# https://github.com/dani-garcia/vaultwarden
 services:
-  prowlarr:
-    container_name: prowlarr
-    image: lscr.io/linuxserver/prowlarr:nightly
+  vaultwarden:
+    container_name: vaultwarden
+    image: vaultwarden/server:latest
     restart: unless-stopped
     ports:
-      - 9696:9696
+      - 8687:80
     environment:
       - PUID=${PUID:?err}
       - PGID=${PGID:?err}
       - TZ=${TZ:?err}
     volumes:
-      - ${APP_DIR:?err}/prowlarr/config:/config
-      - ${APP_DIR:?err}/prowlarr/Backup:/data/Backup
-      - ${DATA_DIR:?err}:/data
+      - ${APP_DIR:?err}/vaultwarden/data:/data
     networks:
       - proxy
 
